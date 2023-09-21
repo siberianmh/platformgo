@@ -42,6 +42,14 @@ func NewClient(key string) *Client {
 	return c
 }
 
+func (c *Client) SetEndpoint(endpoint string) {
+	c.endpoint = endpoint
+}
+
+func (c *Client) SetToken(apiKey string) {
+	c.apiKey = apiKey
+}
+
 func (c *Client) newRequest(ctx context.Context, method, path string, body, resp any) error {
 	var bodyBuf io.ReadWriter
 	if body != nil {
