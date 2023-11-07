@@ -37,6 +37,7 @@ type Client struct {
 	userAgent  string
 
 	WebAnalytics WebAnalyticsService
+	Orgs         OrgsService
 	User         UserService
 }
 
@@ -51,6 +52,7 @@ func NewClient(key string) *Client {
 	}
 
 	c.WebAnalytics = &WebAnalyticsServiceImpl{client: c}
+	c.Orgs = &OrgsServiceImpl{client: c}
 	c.User = &UserServiceImpl{client: c}
 
 	return c
