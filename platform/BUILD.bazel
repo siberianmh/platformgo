@@ -5,6 +5,7 @@ go_library(
     srcs = [
         "analytics.go",
         "client.go",
+        "orgs.go",
         "user.go",
     ],
     importpath = "go.siberianmh.com/third_party/github/platformgo/platform",
