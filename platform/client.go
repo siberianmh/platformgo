@@ -25,8 +25,9 @@ import (
 )
 
 const (
+	packageVersion = "0.0.1"
 	defaultBaseURL = "https://api-platform.siberianmh.com"
-	userAgent      = "platform-go/1.0"
+	userAgent      = "platform-go/" + packageVersion
 )
 
 // @typescript-ignore Client
@@ -37,6 +38,7 @@ type Client struct {
 	userAgent  string
 
 	WebAnalytics WebAnalyticsService
+	Packages     PackagesService
 	Orgs         OrgsService
 	User         UserService
 }
@@ -52,6 +54,7 @@ func NewClient(key string) *Client {
 	}
 
 	c.WebAnalytics = &WebAnalyticsServiceImpl{client: c}
+	c.Packages = &PackagesServiceImpl{client: c}
 	c.Orgs = &OrgsServiceImpl{client: c}
 	c.User = &UserServiceImpl{client: c}
 
